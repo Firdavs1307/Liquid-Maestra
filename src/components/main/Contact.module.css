@@ -25,6 +25,7 @@
     row-gap: 25px;
     color: #fff;
 }
+
 .forms {
     display: flex;
     flex-direction: column;

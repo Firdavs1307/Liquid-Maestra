@@ -1,8 +1,10 @@
 import Image from "next/image";
-import style from './cocktailMenu.module.css'
+import style from "./cocktailMenu.module.css";
 
 export default async function CocktailMenu() {
-  const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita');
+  const response = await fetch(
+    "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
+  );
   const data = await response.json();
 
   const margaritas = data.drinks || [];
@@ -14,11 +16,12 @@ export default async function CocktailMenu() {
         {margaritas.map((margarita, index) => (
           <li key={index} className={style.cocktails}>
             <div>
-              <Image 
-                src={margarita.strDrinkThumb} 
-                alt={margarita.strDrink} 
+              <Image
+                src={margarita.strDrinkThumb}
+                alt={margarita.strDrink}
                 width={200}
-                height={200}/>
+                height={200}
+              />
             </div>
             <div className={style.description}>
               <div className={style.title}>{margarita.strDrink}</div>
@@ -26,7 +29,7 @@ export default async function CocktailMenu() {
             </div>
           </li>
         ))}
-      </ul>  
+      </ul>
     </div>
   );
 }
